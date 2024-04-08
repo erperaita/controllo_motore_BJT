@@ -1,0 +1,64 @@
+bool emergenza;
+
+
+void setup()
+{
+  //input pins
+  pinMode(2, INPUT);//start
+  pinMode(3, INPUT);//stop
+  pinMode(4, INPUT);//emergenza
+  pinMode(5, INPUT);//reset
+  //motor control pin
+  pinMode(6,OUTPUT);
+  //leds pins
+  pinMode(7,OUTPUT);//emergenza
+  pinMode(8,OUTPUT);//marcia
+  pinMode(9,OUTPUT);//motore fermo
+  //startup instructions
+  digitalWrite(7, LOW);
+  digitalWrite(8, LOW);
+  digitalWrite(9, HIGH);
+  emergenza = false;
+  Serial.begin(9600);
+}
+
+void loop()
+{
+
+  String data = Serial.readString();
+
+  if(digitalRead(2) == true|data == "start" && emergenza == false){
+    digitalWrite(6, HIGH);//motor starts
+    digitalWrite(8, HIGH);
+    digitalWrite(9, LOW);
+    Serial.println("start button pressed");
+    Serial.flush();
+  }
+  if(digitalRead(3) == true|data == "stop" && emergenza == false){
+    digitalWrite(6, LOW);//motor stops
+    digitalWrite(9, HIGH);
+    digitalWrite(8, LOW);
+    Serial.println("stop button pressed");
+    Serial.flush();
+  }
+  if(digitalRead(4) == true|data == "em"){
+    emergenza = true;
+    Serial.println("emergency button pressed");
+    Serial.flush();
+    
+  }
+  if(digitalRead(5) == true|data == "reset"){
+    emergenza = false;
+    digitalWrite(7,LOW);
+    Serial.println("reset button pressed");
+    Serial.flush();
+  }
+  if(emergenza == true){
+    digitalWrite(6,LOW);
+    digitalWrite(7, HIGH);
+    digitalWrite(8,LOW);
+    digitalWrite(9,HIGH);
+  
+  }
+  
+}
