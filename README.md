@@ -1,0 +1,1 @@
+# controllo_motore_BJT
