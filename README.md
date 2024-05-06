@@ -1,3 +1,3 @@
 # controllo_motore_BJT
 
-![alt text](http://url/to/img.png)
+![plot](./controllo_motore_BJT.png)
