@@ -25,33 +25,29 @@ void setup()
 void loop()
 {
 
-  //String data = Serial.readString();
+  
 
   if(digitalRead(2) == true/*|data == "start" */&& emergenza == false){
     digitalWrite(6, HIGH);//motor starts
     digitalWrite(8, HIGH);
     digitalWrite(9, LOW);
-    /*Serial.println("start button pressed");
-    Serial.flush();*/
+    
   }
   if(digitalRead(3) == true/*|data == "stop"*/ && emergenza == false){
     digitalWrite(6, LOW);//motor stops
     digitalWrite(9, HIGH);
     digitalWrite(8, LOW);
-    /*Serial.println("stop button pressed");
-    Serial.flush();*/
+    
   }
   if(digitalRead(4) == true/*|data == "em"*/){
     emergenza = true;
-    /*Serial.println("emergency button pressed");
-    Serial.flush();*/
+    
     
   }
   if(digitalRead(5) == true/*|data == "reset"*/){
     emergenza = false;
     digitalWrite(7,LOW);
-    /*Serial.println("reset button pressed");
-    Serial.flush();*/
+    
   }
   if(emergenza == true){
     digitalWrite(6,LOW);
@@ -60,9 +56,5 @@ void loop()
     digitalWrite(9,HIGH);
   
   }
-  /*if(digitalRead(2) == true|data == "start" && emergenza == true){
-    Serial.println("EMERGENCY STATE IL ACTIVE! press reset button to continue");
-    Serial.flush();
-  }
-  */
+  
 }
