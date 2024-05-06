@@ -1,3 +1,3 @@
 # controllo_motore_BJT
 
-![plot](./controllo_motore_BJT.png)
+![screenshot](controllo motore con BJT.png)
