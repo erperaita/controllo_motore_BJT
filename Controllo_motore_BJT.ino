@@ -1,3 +1,5 @@
+
+
 bool emergenza;
 
 
@@ -19,7 +21,6 @@ void setup()
   digitalWrite(8, LOW);
   digitalWrite(9, HIGH);
   emergenza = false;
-  //Serial.begin(9600);
 }
 
 void loop()
@@ -31,30 +32,23 @@ void loop()
     digitalWrite(6, HIGH);//motor starts
     digitalWrite(8, HIGH);
     digitalWrite(9, LOW);
-    
   }
   if(digitalRead(3) == true/*|data == "stop"*/ && emergenza == false){
     digitalWrite(6, LOW);//motor stops
     digitalWrite(9, HIGH);
     digitalWrite(8, LOW);
-    
   }
   if(digitalRead(4) == true/*|data == "em"*/){
     emergenza = true;
-    
-    
   }
   if(digitalRead(5) == true/*|data == "reset"*/){
     emergenza = false;
     digitalWrite(7,LOW);
-    
   }
   if(emergenza == true){
     digitalWrite(6,LOW);
     digitalWrite(7, HIGH);
     digitalWrite(8,LOW);
     digitalWrite(9,HIGH);
-  
   }
-  
 }
