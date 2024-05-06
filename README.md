@@ -1,4 +1,4 @@
 # controllo_motore_BJT
 
 
-![Uploading image.png…]()
+<img src="controllo motore con BJT" width="128"/>
